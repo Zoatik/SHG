@@ -1,0 +1,85 @@
+{
+  "name": "SHG",
+  "displayName": "Simple Header Generator",
+  "description": "a simple header generator",
+  "publisher": "Zoatik",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Settings"
+    },
+    "commands": [
+      {
+        "command": "SHG.openHeaderConfig",
+        "title": "Open Header Configuration File",
+        "category": "Header Extension"
+      },
+      {
+        "command": "SHG.generate_header",
+        "title": "SHG.generate_header",
+        "when": "resourceFilename =~ /\\.(txt|cc|cpp|js|h)$/"
+      },
+      {
+        "command": "SHG.generate_save_header",
+        "title": "SHG.generate_save_header",
+        "when": "resourceFilename =~ /\\.(txt|cc|cpp|js|json|h)$/"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "SHG.openHeaderConfig",
+        "key": "ctrl+shift+h",
+        "mac": "cmd+shift+h",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "SHG.generate_header",
+        "key": "ctrl+alt+h",
+        "mac": "cmd+alt+h",
+        "when": "resourceFilename =~ /\\.(txt|cc|cpp|js|h)$/"
+      },
+      {
+        "command": "SHG.generate_save_header",
+        "key": "ctrl+s",
+        "mac": "cmd+s",
+        "when": "resourceFilename =~ /\\.(txt|cc|cpp|js|json|h)$/"
+      }
+    ]
+  },
+  "files": [
+    "header.json"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/node-fetch": "^2.6.3",
+    "@types/vscode": "^1.77.0",
+    "@types/whatwg-fetch": "^0.0.33",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.36.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "esbuild": "^0.17.18",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.9",
+    "path": "^0.12.7"
+  }
+}

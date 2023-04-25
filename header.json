@@ -1,0 +1,9 @@
+{
+    "HeaderMarker":"\\HEADER/",
+    "ShowFileName": true, 
+    "ShowModifiedDate": true,
+    "ShowCreatedDate": true,
+    "Authors": ["Hall Axel", "Michel Lucas"],
+    "Scipers": ["346228", "363073"],
+    "Version": "2.0"
+}
